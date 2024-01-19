@@ -1,4 +1,4 @@
-package dev.selenium;
+package selenium;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -14,7 +14,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.grid.Main;
 import org.openqa.selenium.net.PortProber;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.junit.jupiter.api.AfterEach;
+//https://github.com/SeleniumHQ/seleniumhq.github.io/blob/trunk/examples/java/src/test/java/dev/selenium/BaseTest.java
 public class BaseTest {
      protected WebDriver driver;
     protected WebDriverWait wait;
@@ -37,4 +38,31 @@ public class BaseTest {
         return (ChromeDriver) driver;
     }
 
+    protected URL startStandaloneGrid() {
+        int port = PortProber.findFreePort();
+        try {
+            Main.main(
+                    new String[] {
+                            "standalone",
+                            "--port",
+                            String.valueOf(port),
+                            "--selenium-manager",
+                            "true",
+                            "--enable-managed-downloads",
+                            "true",
+                            "--log-level",
+                            "WARNING"
+                    });
+            return new URL("http://localhost:" + port);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @AfterEach
+    public void quit() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
