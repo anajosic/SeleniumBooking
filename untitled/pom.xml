@@ -46,5 +46,17 @@
             <artifactId>selenium-logger</artifactId>
             <version>2.4.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>4.15.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>4.15.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

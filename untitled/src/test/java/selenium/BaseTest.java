@@ -1,20 +1,18 @@
 package selenium;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.time.Duration;
+
+import org.junit.jupiter.api.AfterEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.grid.Main;
 import org.openqa.selenium.net.PortProber;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.junit.jupiter.api.AfterEach;
+
+import java.io.File;
+import java.net.URL;
+import java.time.Duration;
 //https://github.com/SeleniumHQ/seleniumhq.github.io/blob/trunk/examples/java/src/test/java/dev/selenium/BaseTest.java
 public class BaseTest {
      protected WebDriver driver;
